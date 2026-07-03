@@ -195,8 +195,9 @@ def run_cli():
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Inventory management API")
     parser.add_argument("--cli", action="store_true", help="Run the interactive CLI")
+    parser.add_argument("--port", type=int, default=5001, help="Port to run the API server on (default: 5001)")
     args = parser.parse_args()
     if args.cli:
         run_cli()
     else:
-        app.run(debug=True)
+        app.run(debug=True, port=args.port)
